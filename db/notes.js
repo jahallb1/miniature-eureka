@@ -2,6 +2,8 @@ const util = require('util');
 const fs = require('fs');
 const uuidv1 = require('uuid');
 
+let notesArr;
+
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAysnc = util.promisify(fs.writeFile);
 const { json } = require('express');
@@ -10,16 +12,22 @@ class NotesFile {
     read() {
         return readFileAsync('db/db.json', "utf8"); 
     }
-    write() {
-         return writeFileAysnc('db/db.json').json.toString(notes);
+    async write(note) {
+        const newNote = {
+            ...note,
+            id: uuidv1()
+        }
+        const existingNotes =  await this.read();
+            const newArr = JSON.stringify([...JSON.parse(existingNotes), newNote])
+         return writeFileAysnc('db/db.json', newArr, 'utf8', function() {
+             return
+         });
      }
-    getNotes() {
-        return this.read().then((notes) => {
-        let notesArr = [];  
-        notesArr = [].concat(JSON.parse(notes));
-        return notesArr;  
-        })
+    async getNotes() {
+       const notes = await this.read();
+        return JSON.parse(notes);  
     }
+    
 }
 
 module.exports = new NotesFile();
