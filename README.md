@@ -25,5 +25,5 @@ npm install uuid
 
 ## Screen Shots
 
-[homepage](https://github.com/jahallb1/miniature-eureka/blob/master/images/homepage.png)
-[notes](https://github.com/jahallb1/miniature-eureka/blob/master/images/notetaker.png)
+![homepage](https://github.com/jahallb1/miniature-eureka/blob/master/images/homepage.png)
+![notes](https://github.com/jahallb1/miniature-eureka/blob/master/images/notetaker.png)
