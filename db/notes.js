@@ -14,8 +14,7 @@ class NotesFile {
     }
     async write(note) {
         const newNote = {
-            ...note,
-            id: uuidv1()
+            ...note, id: uuidv1
         }
         const existingNotes =  await this.read();
             const newArr = JSON.stringify([...JSON.parse(existingNotes), newNote])
