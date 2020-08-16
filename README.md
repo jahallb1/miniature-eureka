@@ -22,6 +22,7 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ## Installation
 npm install uuid
+This should be the only install you need to work on the code.
 
 ## Screen Shots
 
